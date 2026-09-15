@@ -1,0 +1,325 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --preto: #090909;
+    --preto-2: #111111;
+    --cinza-escuro: #1b1b1b;
+    --cinza: #2a2a2a;
+    --cinza-texto: #a7a7a7;
+    --branco: #ffffff;
+    --amarelo: #ffcc00;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #292929 0%, var(--preto) 45%, #050505 100%);
+    color: var(--branco);
+    padding: 50px 20px;
+}
+
+/* CONTAINER */
+
+.matricula {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.logo-area {
+    display: flex;
+    object-fit: contain;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+}
+.logo-badge {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.logo-placeholder {
+    width: 48px;
+    height: 48px;
+    border: 2px solid var(--amarelo);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--preto-2);
+    color: var(--amarelo);
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.logo-placeholder span {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo-placeholder small {
+    margin-top: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--branco);
+}
+
+/* CABEÇALHO */
+
+.matricula-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.matricula-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.matricula-header h1::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--amarelo);
+    margin: 15px auto 0;
+}
+
+.matricula-header p {
+    color: var(--cinza-texto);
+    font-size: 16px;
+}
+
+/* FORMULÁRIO */
+
+.matricula-form {
+    background: var(--preto-2);
+    border: 1px solid var(--cinza);
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* SEÇÕES */
+
+.form-section {
+    padding-bottom: 35px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid var(--cinza);
+}
+
+.form-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-title > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 42px;
+    height: 42px;
+    border: 1px solid var(--amarelo);
+    border-radius: 50%;
+    color: var(--amarelo);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.section-title h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.section-title p {
+    color: var(--cinza-texto);
+    font-size: 14px;
+}
+
+/* CAMPOS */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 15px;
+    background: var(--cinza-escuro);
+    border: 1px solid var(--cinza);
+    border-radius: 6px;
+    color: var(--branco);
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #707070;
+}
+
+.form-group input:focus {
+    border-color: var(--amarelo);
+    box-shadow: 0 0 0 2px rgba(255, 204, 0, 0.12);
+}
+
+/* PLANOS */
+
+.plan-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.plan-card,
+.payment-card {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.plan-card input,
+.payment-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.card-content {
+    min-height: 120px;
+    padding: 22px;
+    background: var(--cinza-escuro);
+    border: 1px solid var(--cinza);
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.card-content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.card-content p {
+    color: var(--cinza-texto);
+    font-size: 14px;
+}
+
+.plan-card:hover .card-content,
+.payment-card:hover .card-content {
+    border-color: #666;
+    transform: translateY(-2px);
+}
+
+.plan-card input:checked + .card-content,
+.payment-card input:checked + .card-content {
+    border-color: var(--amarelo);
+    box-shadow: 0 0 0 1px var(--amarelo);
+    background: #202020;
+}
+
+.plan-card input:checked + .card-content h3,
+.payment-card input:checked + .card-content h3 {
+    color: var(--amarelo);
+}
+
+/* PAGAMENTO */
+
+.payment-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+/* BOTÃO */
+
+.form-actions {
+    margin-top: 30px;
+}
+
+.btn-matricula {
+    width: 100%;
+    min-height: 54px;
+    border: none;
+    border-radius: 6px;
+    background: var(--amarelo);
+    color: #000000;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-matricula:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+}
+
+.btn-matricula:active {
+    transform: translateY(0);
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 30px 15px;
+    }
+
+    .matricula-header h1 {
+        font-size: 30px;
+    }
+
+    .matricula-form {
+        padding: 25px 20px;
+    }
+
+    .form-grid,
+    .plan-options,
+    .payment-options {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title {
+        align-items: flex-start;
+    }
+
+    .section-title h2 {
+        font-size: 19px;
+    }
+}
